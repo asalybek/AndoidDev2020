@@ -13,7 +13,6 @@ public class PostsContainer {
     private static  PostsContainer postsContainer;
     private List<Post> posts;
     private List<Post> likedPosts;
-    static SimpleDateFormat dateFormat = new SimpleDateFormat("d MMM", Locale.ENGLISH);
     public static PostsContainer get(Context context) {
         if (postsContainer == null) {
             postsContainer = new PostsContainer(context);
@@ -23,6 +22,7 @@ public class PostsContainer {
     private PostsContainer(Context context) {
         posts = new ArrayList<>();
         int like = R.drawable.ic_heart_row;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("d MMM", Locale.ENGLISH);
         posts.add(new Post("канский","@Beisekeyev","‧ "+dateFormat.format(new Date()),"В общем, цены авиабилетов для экономики Казахстана очень необоснованны. Имхо. " +
                 "Где средняя зп в кз - 45к, как могут билеты стоять около 70-100 000тг и больше.",
                 R.drawable.a,"4","13",170,false,like));
@@ -49,8 +49,7 @@ public class PostsContainer {
         posts.add(new Post("Великие слова","@topcitat","‧ "+dateFormat.format(new Date()),"Не в возрасте дело,а в культуре общения и уровне интеллектуального развития.",
                 R.drawable.i,"1","28",139,false,like));
     }
-    public List<Post> getAllPosts()
-    {
+    public List<Post> getAllPosts() {
         return posts;
     }
 
@@ -58,11 +57,9 @@ public class PostsContainer {
         likedPosts = new ArrayList<>();
         for (Post post:posts){
             if(post.isLiked()){
-                Log.e("Like", "post added to LIKED");
                 likedPosts.add(post);
             }
         }
         return likedPosts;
     }
-
 }

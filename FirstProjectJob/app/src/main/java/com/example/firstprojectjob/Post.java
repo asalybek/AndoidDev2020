@@ -1,7 +1,5 @@
 package com.example.firstprojectjob;
 
-import java.util.Date;
-
 public class Post {
     private String login;
     private String date;
@@ -12,15 +10,7 @@ public class Post {
     private String commentCnt;
     private String tweetCnt;
     private boolean isLiked;
-    int redlike;
-
-    public int getRedlike() {
-        return redlike;
-    }
-
-    public void setRedlike(int redlike) {
-        this.redlike = redlike;
-    }
+    private int redlike;
 
     public Post(String name, String login, String date, String post, int profileImg, String commentCnt, String tweetCnt, int likeCnt, boolean isLiked, int redlike) {
         this.name = name;
@@ -59,16 +49,31 @@ public class Post {
         return post;
     }
 
-    public int getLikeCnt() { return likeCnt; }
-
-    public int getProfileImg() { return profileImg; }
-
-    public String getName() { return name; }
-
-    public Post() {
+    public int getLikeCnt() {
+        return likeCnt;
     }
 
-    public String getCommentCnt() { return commentCnt; }
+    public int getProfileImg() {
+        return profileImg;
+    }
 
-    public String getTweetCnt() { return tweetCnt; }
+    public String getName() {
+        return name;
+    }
+
+    public String getCommentCnt() {
+        return commentCnt;
+    }
+
+    public String getTweetCnt() {
+        return tweetCnt;
+    }
+
+    public int getRedlike() {
+        return redlike;
+    }
+
+    public void setRedlike(int redlike) {
+        this.redlike = redlike;
+    }
 }

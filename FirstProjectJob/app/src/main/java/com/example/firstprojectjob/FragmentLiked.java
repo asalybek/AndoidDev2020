@@ -16,42 +16,30 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Objects;
 
 public class FragmentLiked extends Fragment implements IDislike {
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private PostAdapter adapter;
-    ImageButton like;
     private List<Post> dataSet;
-    PostsContainer postsContainer = PostsContainer.get(getContext());
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
+    private PostsContainer postsContainer = PostsContainer.get(getContext());
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        Log.e(getClass().getSimpleName(), "onCreateView");
         View v = inflater.inflate(R.layout.fragment_liked, container, false);
         recyclerView = v.findViewById(R.id.recyclerView);
 
         dataSet = postsContainer.getLikedPosts();
 
         adapter = new PostAdapter(dataSet,this);
-        //adapter.setDislikeListener(this);
         RecyclerView.LayoutManager mlayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mlayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
-        like = v.findViewById(R.id.ic_like);
         return v;
     }
 
     public void updateLike() {
-        Log.e("Update", "updateLike");
-
         dataSet.clear();
         dataSet.addAll(PostsContainer.get(getContext()).getLikedPosts());
         adapter.notifyDataSetChanged();
@@ -65,13 +53,11 @@ public class FragmentLiked extends Fragment implements IDislike {
 //                recyclerView.setAdapter(adapter);
 //            }
 //        }, 300);
-
-
     }
 
     @Override
     public void onPostDisLike() {
-        ((SecondMainActivity) getActivity()).onPostDisLike();
+        ((SecondMainActivity) Objects.requireNonNull(getActivity())).onPostDisLike();
     }
 }
 
