@@ -1,6 +1,4 @@
-package com.example.firstprojectjob;
-
-import java.util.Date;
+package com.example.firstprojectjob.model;
 
 public class Post {
     private String login;
@@ -12,17 +10,9 @@ public class Post {
     private String commentCnt;
     private String tweetCnt;
     private boolean isLiked;
-    int redlike;
+    private int redlike;
 
-    public int getRedlike() {
-        return redlike;
-    }
-
-    public void setRedlike(int redlike) {
-        this.redlike = redlike;
-    }
-
-    public Post(String name, String login, String date, String post, int profileImg, String commentCnt, String tweetCnt, int likeCnt, boolean isLiked, int redlike) {
+    Post(String name, String login, String date, String post, int profileImg, String commentCnt, String tweetCnt, int likeCnt, boolean isLiked, int redlike) {
         this.name = name;
         this.login = login;
         this.date = date;
@@ -59,16 +49,31 @@ public class Post {
         return post;
     }
 
-    public int getLikeCnt() { return likeCnt; }
-
-    public int getProfileImg() { return profileImg; }
-
-    public String getName() { return name; }
-
-    public Post() {
+    public int getLikeCnt() {
+        return likeCnt;
     }
 
-    public String getCommentCnt() { return commentCnt; }
+    public int getProfileImg() {
+        return profileImg;
+    }
 
-    public String getTweetCnt() { return tweetCnt; }
+    public String getName() {
+        return name;
+    }
+
+    public String getCommentCnt() {
+        return commentCnt;
+    }
+
+    public String getTweetCnt() {
+        return tweetCnt;
+    }
+
+    public int getRedlike() {
+        return redlike;
+    }
+
+    public void setRedlike(int redlike) {
+        this.redlike = redlike;
+    }
 }

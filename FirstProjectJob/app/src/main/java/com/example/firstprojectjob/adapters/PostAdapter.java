@@ -1,6 +1,5 @@
-package com.example.firstprojectjob;
+package com.example.firstprojectjob.adapters;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.firstprojectjob.IChange;
+import com.example.firstprojectjob.IDislike;
+import com.example.firstprojectjob.model.Post;
+import com.example.firstprojectjob.R;
 
 import java.util.List;
 
@@ -26,13 +30,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostHolder> {
     public PostAdapter (List<Post> posts,IChange mChangeListener){
         this.posts = posts;
         this.mChangeListener= mChangeListener;
-    }
-
-    public void setChangeListener(IChange mChangeListener) {
-        this.mChangeListener = mChangeListener;
-    }
-    public void setDislikeListener(IDislike mDisLikeListener){
-        this.mDisLikeListener = mDisLikeListener;
     }
     @NonNull
     @Override
@@ -58,33 +55,30 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostHolder> {
         holder.like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("Cnt", String.valueOf(post.isLiked()));
                 if(!post.isLiked()) {
                     holder.like.setImageResource(R.drawable.ic_like_clicked_row);
-                    Log.e("Like", "Isliked true");
-                    post.setLiked(true);
-                    post.setRedlike(R.drawable.ic_like_clicked_row);
                     int s = Integer.parseInt(holder.likeCnt.getText().toString())+1;
                     holder.likeCnt.setText(String.valueOf(s));
+                    post.setLiked(true);
+                    post.setRedlike(R.drawable.ic_like_clicked_row);
                     post.setLikeCnt(post.getLikeCnt() + 1 );
                     if (mChangeListener != null) {
-                        Log.e("Like", "OnPostLike Listener");
                         mChangeListener.onPostLike();}
                     if (mDisLikeListener != null) {
-                        Log.e("Like", "OnDislike Listener");
                         mDisLikeListener.onPostDisLike();
                     }
                 }
                 else {
-                    post.setLikeCnt(post.getLikeCnt() - 1);
-                    post.setRedlike(R.drawable.ic_heart_row);
                     holder.like.setImageResource(R.drawable.ic_heart_row);
-                    post.setLiked(false);
                     int s = Integer.parseInt(holder.likeCnt.getText().toString()) - 1;
                     holder.likeCnt.setText(String.valueOf(s));
-                    if (mChangeListener != null) {mChangeListener.onPostLike();}
+                    post.setLiked(false);
+                    post.setLikeCnt(post.getLikeCnt() - 1);
+                    post.setRedlike(R.drawable.ic_heart_row);
+                    if (mChangeListener != null) {
+                        mChangeListener.onPostLike();
+                    }
                     if (mDisLikeListener != null) {
-                        Log.e("Like", "OnDislike Listener");
                         mDisLikeListener.onPostDisLike();
                     }
                 }
@@ -98,11 +92,11 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostHolder> {
 
     public class PostHolder extends RecyclerView.ViewHolder {
 
-        public TextView name,login,date,post,commentCnt,tweetCnt,likeCnt;
-        public ImageView profileImg;
-        public ImageButton like;
+        private TextView name,login,date,post,commentCnt,tweetCnt,likeCnt;
+        private ImageView profileImg;
+        private ImageButton like;
 
-        public PostHolder(@NonNull View itemView) {
+        private PostHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name_txt);
             login = itemView.findViewById(R.id.login_txt);
