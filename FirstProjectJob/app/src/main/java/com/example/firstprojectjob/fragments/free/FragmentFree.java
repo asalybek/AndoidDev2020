@@ -72,6 +72,13 @@ public class FragmentFree extends Fragment {
 //    }
 
     public void modifyKnps(Knp[] knps){
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 249e58d08497a4155595a38e7d7e2f7296d912c2
+>>>>>>> 360cbaaf58bf33c1428c05a179a707d4c1ef55ed
         mKnpList.addAll(Arrays.asList(knps));
 
 //        for (Knp knp : knps) {
