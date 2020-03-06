@@ -90,7 +90,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostHolder> {
         return posts.size();
     }
 
-    public class PostHolder extends RecyclerView.ViewHolder {
+    static class PostHolder extends RecyclerView.ViewHolder {
 
         private TextView name,login,date,post,commentCnt,tweetCnt,likeCnt;
         private ImageView profileImg;

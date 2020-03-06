@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.firstprojectjob.IDislike;
-import com.example.firstprojectjob.model.Post;
 import com.example.firstprojectjob.adapters.PostAdapter;
+import com.example.firstprojectjob.model.Post;
 import com.example.firstprojectjob.model.PostsContainer;
 import com.example.firstprojectjob.R;
 import com.example.firstprojectjob.activities.SecondMainActivity;
@@ -61,7 +61,7 @@ public class FragmentLiked extends Fragment implements IDislike {
 
     @Override
     public void onPostDisLike() {
-        ((SecondMainActivity) Objects.requireNonNull(getActivity())).onPostDisLike();
+        //((SecondMainActivity) Objects.requireNonNull(getActivity())).onPostDisLike();
     }
 }
 

@@ -2,4 +2,7 @@
     <string name="app_name">FirstProjectJob</string>
     <string name="канский">"В общем, цены авиабилетов для экономики Казахстана очень необоснованны. Имхо. " +
                 "Где средняя зп в кз - 45к, как могут билеты стоять около 70-100 000тг и больше."</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

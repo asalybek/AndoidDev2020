@@ -55,8 +55,8 @@ public class PostsContainer {
     }
 
     public  List<Post> getLikedPosts(){
-        List<Post>  likedPosts = new ArrayList<>();
-        for (Post post:posts){
+        List<Post> likedPosts = new ArrayList<>();
+        for (Post post : posts) {
             if(post.isLiked()){
                 likedPosts.add(post);
             }
