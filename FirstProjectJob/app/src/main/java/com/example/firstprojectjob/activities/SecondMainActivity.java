@@ -9,7 +9,10 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.firstprojectjob.IChange;
 import com.example.firstprojectjob.IDislike;
 import com.example.firstprojectjob.R;
+<<<<<<< HEAD:FirstProjectJob/app/src/main/java/com/example/firstprojectjob/activities/SecondMainActivity.java
 import com.example.firstprojectjob.TabView;
+=======
+>>>>>>> 249e58d08497a4155595a38e7d7e2f7296d912c2:FirstProjectJob/app/src/main/java/com/example/firstprojectjob/SecondMainActivity.java
 import com.example.firstprojectjob.adapters.ViewPagerFragmentAdapter;
 import com.example.firstprojectjob.fragments.FragmentLiked;
 import com.example.firstprojectjob.fragments.FragmentPage;
@@ -21,12 +24,20 @@ import java.util.Objects;
 
 
 public class SecondMainActivity extends AppCompatActivity implements IChange, IDislike {
+<<<<<<< HEAD:FirstProjectJob/app/src/main/java/com/example/firstprojectjob/activities/SecondMainActivity.java
 //    private TabLayout tabLayout;
 //    private int[] tabIcons= {
 //            R.drawable.ic_page,
 //            R.drawable.ic_tab_liked
 //    };
     private TabView mTabView;
+=======
+    private TabLayout tabLayout;
+    private int[] tabIcons= {
+            R.drawable.ic_page,
+            R.drawable.ic_tab_liked
+    };
+>>>>>>> 249e58d08497a4155595a38e7d7e2f7296d912c2:FirstProjectJob/app/src/main/java/com/example/firstprojectjob/SecondMainActivity.java
     FragmentPage fragmentPage;
     FragmentLiked fragmentLiked;
     public SecondMainActivity(TabView mTabView){
@@ -56,6 +67,7 @@ public class SecondMainActivity extends AppCompatActivity implements IChange, ID
     @Override
     public void onPostLike() {
         fragmentLiked.updateLike();
+        //fragmentPage.updateLike();
     }
     @Override
     public void onPostDisLike() {
