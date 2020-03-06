@@ -1,4 +1,4 @@
-package com.example.firstprojectjob;
+package com.example.firstprojectjob.activities;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -7,6 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import com.example.firstprojectjob.R;
+import com.example.firstprojectjob.fragments.free.FragmentFree;
+import com.example.firstprojectjob.fragments.FragmentLiked;
+import com.example.firstprojectjob.fragments.FragmentPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -17,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        PostsContainer postsContainer = PostsContainer.get(MainActivity.this);
 
         fm = getSupportFragmentManager();
         fragment = fm.findFragmentById(R.id.fragment_container);

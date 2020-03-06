@@ -1,11 +1,10 @@
-package com.example.firstprojectjob;
+package com.example.firstprojectjob.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,12 +13,18 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.firstprojectjob.IChange;
+import com.example.firstprojectjob.adapters.PostAdapter;
+import com.example.firstprojectjob.model.PostsContainer;
+import com.example.firstprojectjob.R;
+import com.example.firstprojectjob.activities.SecondMainActivity;
+
 import java.util.Objects;
 
 public class FragmentPage extends Fragment implements IChange {
     private RecyclerView recyclerView;
-    private  PostAdapter adapter;
-    private PostsContainer postsContainer = PostsContainer.get(getContext());
+    private PostAdapter adapter;
+    private PostsContainer postsContainer = PostsContainer.get();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

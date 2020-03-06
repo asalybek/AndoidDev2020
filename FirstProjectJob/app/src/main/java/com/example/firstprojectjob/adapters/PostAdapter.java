@@ -1,4 +1,4 @@
-package com.example.firstprojectjob;
+package com.example.firstprojectjob.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.firstprojectjob.IChange;
+import com.example.firstprojectjob.IDislike;
+import com.example.firstprojectjob.model.Post;
+import com.example.firstprojectjob.R;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
-package com.example.firstprojectjob;
+package com.example.firstprojectjob.model;
 
-import android.content.Context;
-import android.util.Log;
+import com.example.firstprojectjob.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,16 +9,18 @@ import java.util.List;
 import java.util.Locale;
 
 public class PostsContainer {
+
     private static  PostsContainer postsContainer;
     private List<Post> posts;
-    private List<Post> likedPosts;
-    public static PostsContainer get(Context context) {
+
+    public static PostsContainer get() {
         if (postsContainer == null) {
-            postsContainer = new PostsContainer(context);
+            postsContainer = new PostsContainer();
         }
         return postsContainer;
     }
-    private PostsContainer(Context context) {
+
+    private PostsContainer() {
         posts = new ArrayList<>();
         int like = R.drawable.ic_heart_row;
         SimpleDateFormat dateFormat = new SimpleDateFormat("d MMM", Locale.ENGLISH);
@@ -54,7 +55,7 @@ public class PostsContainer {
     }
 
     public  List<Post> getLikedPosts(){
-        likedPosts = new ArrayList<>();
+        List<Post>  likedPosts = new ArrayList<>();
         for (Post post:posts){
             if(post.isLiked()){
                 likedPosts.add(post);

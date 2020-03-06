@@ -1,12 +1,9 @@
-package com.example.firstprojectjob;
+package com.example.firstprojectjob.fragments;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,14 +12,26 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.firstprojectjob.IDislike;
+import com.example.firstprojectjob.RecyclerViewPresenter;
+import com.example.firstprojectjob.model.Post;
+import com.example.firstprojectjob.adapters.PostAdapter;
+import com.example.firstprojectjob.model.PostsContainer;
+import com.example.firstprojectjob.R;
+import com.example.firstprojectjob.activities.SecondMainActivity;
+
 import java.util.List;
 import java.util.Objects;
 
 public class FragmentLiked extends Fragment implements IDislike {
     private RecyclerView recyclerView;
+//    RecyclerViewPresenter mRecyclerViewPresenter;
+////    public FragmentLiked(RecyclerViewPresenter mRecyclerViewPresenter){
+////        this.mRecyclerViewPresenter = mRecyclerViewPresenter;
+////    }
     private PostAdapter adapter;
     private List<Post> dataSet;
-    private PostsContainer postsContainer = PostsContainer.get(getContext());
+    private PostsContainer postsContainer = PostsContainer.get();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,7 +50,7 @@ public class FragmentLiked extends Fragment implements IDislike {
 
     public void updateLike() {
         dataSet.clear();
-        dataSet.addAll(PostsContainer.get(getContext()).getLikedPosts());
+        dataSet.addAll(postsContainer.getLikedPosts());
         adapter.notifyDataSetChanged();
 
         //adapter = new PostAdapter(postsContainer.getLikedPosts(),this);

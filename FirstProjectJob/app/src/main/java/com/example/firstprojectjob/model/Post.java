@@ -1,4 +1,4 @@
-package com.example.firstprojectjob;
+package com.example.firstprojectjob.model;
 
 public class Post {
     private String login;
@@ -12,7 +12,7 @@ public class Post {
     private boolean isLiked;
     private int redlike;
 
-    public Post(String name, String login, String date, String post, int profileImg, String commentCnt, String tweetCnt, int likeCnt, boolean isLiked, int redlike) {
+    Post(String name, String login, String date, String post, int profileImg, String commentCnt, String tweetCnt, int likeCnt, boolean isLiked, int redlike) {
         this.name = name;
         this.login = login;
         this.date = date;
